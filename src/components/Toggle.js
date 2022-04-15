@@ -42,7 +42,7 @@ const ToggleBtn = styled.div`
 const ToggleBackground = styled.div`
   position: absolute;
   background-color: #fff;
-  width: 198px;
+  width: 197px;
   height: 44px;
   border-radius: 50px;
   z-index: 99;
