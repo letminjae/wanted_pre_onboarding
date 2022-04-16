@@ -14,7 +14,7 @@ function Tab() {
       <Tabbar>
         {Data.map((el, index) => {
           return (
-            <NavbarButton
+            <TabbarButton
               key={index}
               onClick={() => {
                 handleTab(index);
@@ -22,7 +22,7 @@ function Tab() {
               isClicked={isTab === index ? true : false}
             >
               {el}
-            </NavbarButton>
+            </TabbarButton>
           );
         })}
       </Tabbar>
@@ -39,7 +39,7 @@ const Tabbar = styled.div`
   height: 40px;
 `;
 
-const NavbarButton = styled.div`
+const TabbarButton = styled.div`
   width: 200px;
   height: 40px;
   font-size: 18px;
