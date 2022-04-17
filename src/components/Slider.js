@@ -1,10 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 function Slider() {
   return (
-    <div>Slider</div>
-  )
+    <>
+      <input type="text" readOnly />
+    </>
+  );
 }
 
-export default Slider
+export default Slider;

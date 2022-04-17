@@ -10,7 +10,7 @@ function Tab() {
   };
 
   return (
-    <>
+    <div>
       <Tabbar>
         {Data.map((el, index) => {
           return (
@@ -29,7 +29,7 @@ function Tab() {
       <TabBottomLine>
         <ClickBottomLine isClicked={isTab} />
       </TabBottomLine>
-    </>
+    </div>
   );
 }
 

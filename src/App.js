@@ -24,6 +24,8 @@ const Wrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 50px;
+  padding: 50px;
 `
 
 export default App;
