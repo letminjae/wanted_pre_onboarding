@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import { ReactComponent as Visible } from "../Image/visible.svg";
@@ -8,29 +8,30 @@ import { ReactComponent as Check } from "../Image/check.svg";
 function Input() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const [message, setMessage] = useState("");
-
+  const [emailCheck, setEmailCheck] = useState(false);
   const [passwordType, setPasswordType] = useState(false);
 
   const checkEmail = () => {
-    const emailReg = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-    if (!emailReg.test()){
-      setMessage("Invalid e-mail address");
-      return false;
+    const emailReg =
+      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+    if (!emailReg.test(email)) {
+      setEmailCheck(false);
     } else {
-      setMessage("");
-      return true;
+      setEmailCheck(true);
     }
-  }
+  };
+
+  useEffect(() => {
+    checkEmail();
+  }, [email]);
 
   const onChangeEmail = (e) => {
-    setEmail(e.target.value)
+    setEmail(e.target.value);
   };
 
   const onChangePassword = (e) => {
     setPassword(e.target.value);
-  }
+  };
 
   return (
     <>
@@ -42,10 +43,13 @@ function Input() {
             placeholder={"E-mail"}
             value={email}
             onChange={onChangeEmail}
-            autoComplete="off"
           />
-          {message ? <Check fill="#000000"/> : <Check fill="#cecece"/>}
+          {emailCheck ? <Check fill="#000000" /> : <Check fill="#cecece" />}
         </InputBox>
+
+        {email && !emailCheck && (
+          <label style={{ color: "red" }}>Invalid e-mail address</label>
+        )}
       </LoginBox>
 
       <LoginBox>
@@ -55,7 +59,6 @@ function Input() {
             type={passwordType ? "text" : "password"}
             placeholder={"Password"}
             value={password}
-            autoComplete="off"
             onChange={onChangePassword}
           />
           {passwordType ? (
@@ -70,7 +73,7 @@ function Input() {
 }
 const LoginBox = styled.form`
   width: 300px;
-`
+`;
 
 const InputBox = styled.div`
   display: flex;
@@ -86,6 +89,10 @@ const InputBox = styled.div`
     background-color: #f1f1f1;
     font-size: 16px;
     border: none;
+  }
+
+  input:focus {
+    outline: none;
   }
 `;
 
