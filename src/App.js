@@ -21,10 +21,10 @@ function App() {
 
 const Wrap = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 100px;
   padding: 50px;
 `
 

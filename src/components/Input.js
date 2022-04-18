@@ -34,7 +34,7 @@ function Input() {
   };
 
   return (
-    <>
+    <div>
       <LoginBox>
         <div>E-mail</div>
         <InputBox>
@@ -68,7 +68,7 @@ function Input() {
           )}
         </InputBox>
       </LoginBox>
-    </>
+    </div>
   );
 }
 const LoginBox = styled.form`
