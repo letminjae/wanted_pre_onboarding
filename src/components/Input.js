@@ -36,43 +36,47 @@ function Input() {
   return (
     <div>
       <LoginBox>
-        <div>E-mail</div>
-        <InputBox>
-          <input
-            type="email"
-            placeholder={"E-mail"}
-            value={email}
-            onChange={onChangeEmail}
-          />
-          {emailCheck ? <Check fill="#000000" /> : <Check fill="#cecece" />}
-        </InputBox>
-
-        {email && !emailCheck && (
-          <label style={{ color: "red" }}>Invalid e-mail address</label>
-        )}
+        <div>
+          E-mail
+          <InputBox>
+            <input
+              type="email"
+              placeholder={"E-mail"}
+              value={email}
+              onChange={onChangeEmail}
+            />
+            {emailCheck ? <Check fill="#000000" /> : <Check fill="#cecece" />}
+          </InputBox>
+          {email && !emailCheck && (
+            <label style={{ color: "red" }}>Invalid e-mail address</label>
+          )}
+        </div>
       </LoginBox>
 
       <LoginBox>
-        <div>Password</div>
-        <InputBox>
-          <input
-            type={passwordType ? "text" : "password"}
-            placeholder={"Password"}
-            value={password}
-            onChange={onChangePassword}
-          />
-          {passwordType ? (
-            <NoneVisible onClick={() => setPasswordType(!passwordType)} />
-          ) : (
-            <Visible onClick={() => setPasswordType(!passwordType)} />
-          )}
-        </InputBox>
+        <div>
+          Password
+          <InputBox>
+            <input
+              type={passwordType ? "text" : "password"}
+              placeholder={"Password"}
+              value={password}
+              onChange={onChangePassword}
+            />
+            {passwordType ? (
+              <NoneVisible onClick={() => setPasswordType(!passwordType)} />
+            ) : (
+              <Visible onClick={() => setPasswordType(!passwordType)} />
+            )}
+          </InputBox>
+        </div>
       </LoginBox>
     </div>
   );
 }
 const LoginBox = styled.form`
   width: 300px;
+  height: 120px;
 `;
 
 const InputBox = styled.div`
