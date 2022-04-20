@@ -8,7 +8,7 @@ function Dropdown() {
 
   const onChangeSymbol = (e) => {
     setSearch(e.target.value);
-    onchange(null)
+    onchange(null);
   };
 
   const changeValue = (_value) => {
