@@ -16,7 +16,7 @@ function Dropdown() {
     setIsClicked(false);
   };
 
-  const changeTab = (e) => {
+  const changeTab = () => {
     setIsClicked(!isClicked)
   };
 
